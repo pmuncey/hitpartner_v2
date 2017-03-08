@@ -1,6 +1,8 @@
 class Match < ApplicationRecord
   # Direct associations
 
+  belongs_to :court
+
   has_many   :messages,
              :dependent => :destroy
 
