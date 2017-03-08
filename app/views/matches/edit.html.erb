@@ -42,7 +42,7 @@
           Court
         </label>
 
-        <input type="text" id="court_id" name="court_id" placeholder="Court" class="form-control" value="<%= @match.court_id %>">
+        <%= select_tag(:court_id, options_from_collection_for_select(Court.all, :id, :location, @match.court_id), :class => "form-control") %>
       </div>
 
       <button class="btn btn-warning">
