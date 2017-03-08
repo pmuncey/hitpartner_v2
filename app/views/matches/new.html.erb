@@ -33,7 +33,7 @@
           Hitpartner
         </label>
 
-        <input type="text" id="hitpartner_id" name="hitpartner_id" placeholder="Hitpartner" class="form-control" value="<%= @match.hitpartner_id %>">
+        <%= select_tag(:hitpartner_id, options_from_collection_for_select(User.all, :id, :photo, @match.hitpartner_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for court_id -->
