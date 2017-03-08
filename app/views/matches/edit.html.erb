@@ -1,0 +1,55 @@
+<!-- Validation failure messages -->
+<% if @match.errors.any? %>
+  <% @match.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Match #<%= @match.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_match/<%= @match.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for player_id -->
+      <div class="form-group">
+        <label for="player_id" class="control-label">
+          Player
+        </label>
+
+        <input type="text" id="player_id" name="player_id" placeholder="Player" class="form-control" value="<%= @match.player_id %>">
+      </div>
+
+      <!-- Label and input for hitpartner_id -->
+      <div class="form-group">
+        <label for="hitpartner_id" class="control-label">
+          Hitpartner
+        </label>
+
+        <input type="text" id="hitpartner_id" name="hitpartner_id" placeholder="Hitpartner" class="form-control" value="<%= @match.hitpartner_id %>">
+      </div>
+
+      <!-- Label and input for court_id -->
+      <div class="form-group">
+        <label for="court_id" class="control-label">
+          Court
+        </label>
+
+        <input type="text" id="court_id" name="court_id" placeholder="Court" class="form-control" value="<%= @match.court_id %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Match
+      </button>
+      or
+      <a href="/matches/<%= @match.id %>">Cancel</a>
+    </form>
+  </div>
+</div>
