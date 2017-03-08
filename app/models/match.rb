@@ -1,6 +1,9 @@
 class Match < ApplicationRecord
   # Direct associations
 
+  has_many   :messages,
+             :dependent => :destroy
+
   belongs_to :hitpartner,
              :class_name => "User"
 
