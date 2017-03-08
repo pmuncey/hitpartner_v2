@@ -1,6 +1,6 @@
 class CourtsController < ApplicationController
   def index
-    @courts = Court.all
+    @courts = Court.page(params[:page]).per(10)
 
     render("courts/index.html.erb")
   end

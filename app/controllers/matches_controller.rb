@@ -1,6 +1,6 @@
 class MatchesController < ApplicationController
   def index
-    @matches = Match.all
+    @matches = Match.page(params[:page]).per(10)
 
     render("matches/index.html.erb")
   end
