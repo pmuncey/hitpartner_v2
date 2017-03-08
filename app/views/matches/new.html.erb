@@ -24,7 +24,7 @@
           Player
         </label>
 
-        <input type="text" id="player_id" name="player_id" placeholder="Player" class="form-control" value="<%= @match.player_id %>">
+        <%= select_tag(:player_id, options_from_collection_for_select(User.all, :id, :photo, @match.player_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for hitpartner_id -->
