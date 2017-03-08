@@ -1,6 +1,7 @@
 class CourtsController < ApplicationController
   def index
-    @courts = Court.page(params[:page]).per(10)
+    @q = Court.ransack(params[:q])
+    @courts = @q.result(:distinct => true).includes(:matches).page(params[:page]).per(10)
 
     render("courts/index.html.erb")
   end
