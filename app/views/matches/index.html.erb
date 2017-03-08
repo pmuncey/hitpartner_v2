@@ -18,7 +18,7 @@
       <% @matches.each do |match| %>
       <tr>
         <td><%= match.player.photo %></td>
-        <td><%= match.hitpartner_id %></td>
+        <td><%= match.hitpartner.photo %></td>
         <td><%= match.court_id %></td>
         <td>
           <a href="/matches/<%= match.id %>" class="btn btn-primary">Show</a>
