@@ -6,13 +6,31 @@
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
       <dt>Player</dt>
-      <dd><%= @match.player_id %></dd>
+      <dd>
+        <% if @match.player.present? %>
+          <a href="/users/<%= @match.player_id %>">
+            <%= @match.player.photo %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Hitpartner</dt>
-      <dd><%= @match.hitpartner_id %></dd>
+      <dd>
+        <% if @match.hitpartner.present? %>
+          <a href="/users/<%= @match.hitpartner_id %>">
+            <%= @match.hitpartner.photo %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Court</dt>
-      <dd><%= @match.court_id %></dd>
+      <dd>
+        <% if @match.court.present? %>
+          <a href="/courts/<%= @match.court_id %>">
+            <%= @match.court.location %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 

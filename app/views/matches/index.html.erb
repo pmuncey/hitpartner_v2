@@ -17,9 +17,27 @@
 
       <% @matches.each do |match| %>
       <tr>
-        <td><%= match.player.photo %></td>
-        <td><%= match.hitpartner.photo %></td>
-        <td><%= match.court.location %></td>
+        <td>
+          <% if match.player.present? %>
+            <a href="/users/<%= match.player.id %>">
+              <%= match.player.photo %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if match.hitpartner.present? %>
+            <a href="/users/<%= match.hitpartner.id %>">
+              <%= match.hitpartner.photo %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if match.court.present? %>
+            <a href="/courts/<%= match.court.id %>">
+              <%= match.court.location %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/matches/<%= match.id %>" class="btn btn-primary">Show</a>
           <a href="/matches/<%= match.id %>/edit" class="btn btn-warning">Edit</a>

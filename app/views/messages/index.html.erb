@@ -18,8 +18,20 @@
       <% @messages.each do |message| %>
       <tr>
         <td><%= message.body %></td>
-        <td><%= message.match.player_id %></td>
-        <td><%= message.user.photo %></td>
+        <td>
+          <% if message.match.present? %>
+            <a href="/matches/<%= message.match.id %>">
+              <%= message.match.player_id %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if message.user.present? %>
+            <a href="/users/<%= message.user.id %>">
+              <%= message.user.photo %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/messages/<%= message.id %>" class="btn btn-primary">Show</a>
           <a href="/messages/<%= message.id %>/edit" class="btn btn-warning">Edit</a>
