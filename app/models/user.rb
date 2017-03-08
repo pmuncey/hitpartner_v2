@@ -16,6 +16,14 @@ class User < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :players,
+             :through => :hitpartner_matches,
+             :source => :player
+
+  has_many   :hitpartners,
+             :through => :player_matches,
+             :source => :hitpartner
+
   # Validations
 
   # Include default devise modules. Others available are:
