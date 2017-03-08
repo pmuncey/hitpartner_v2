@@ -6,6 +6,7 @@ class CourtsController < ApplicationController
   end
 
   def show
+    @match = Match.new
     @court = Court.find(params[:id])
 
     render("courts/show.html.erb")

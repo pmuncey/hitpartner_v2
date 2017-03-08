@@ -57,6 +57,38 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_message" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for body -->
+      <div class="form-group">
+        <label for="body" class="control-label">
+          Body
+        </label>
+
+        <input type="text" id="body" name="body" placeholder="Body" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for match_id -->
+      <input type="hidden" name="match_id" value="<%= @match.id %>">
+
+      <!-- Label and input for user_id -->
+      <div class="form-group">
+        <label for="user_id" class="control-label">
+          User
+        </label>
+
+        <%= select_tag(:user_id, options_from_collection_for_select(User.all, :id, :photo), :class => "form-control") %>
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Message
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
