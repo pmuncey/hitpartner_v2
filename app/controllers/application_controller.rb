@@ -8,8 +8,8 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, :keys => [:photo, :utr, :location, :role])
+    devise_parameter_sanitizer.permit(:sign_up, :keys => [:college_tennis, :role, :photo, :description, :utr, :location])
 
-    devise_parameter_sanitizer.permit(:account_update, :keys => [:photo, :utr, :location, :role])
+    devise_parameter_sanitizer.permit(:account_update, :keys => [:college_tennis, :role, :photo, :description, :utr, :location])
   end
 end
