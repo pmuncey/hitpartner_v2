@@ -9,23 +9,27 @@
   <div class="col-md-12">
     <table class="table table-striped table-hover">
       <tr>
-        <th>Photo</th>
-        <th>Utr</th>
-        <th>Location</th>
-        <th>Role</th>
         <th>Email</th>
         <th>Password</th>
+        <th>College tennis</th>
+        <th>Role</th>
+        <th>Photo</th>
+        <th>Description</th>
+        <th>Utr</th>
+        <th>Location</th>
         <th>Actions</th>
       </tr>
 
       <% @users.each do |user| %>
       <tr>
-        <td><%= user.photo %></td>
-        <td><%= user.utr %></td>
-        <td><%= user.location %></td>
-        <td><%= user.role %></td>
         <td><%= user.email %></td>
         <td><%= user.password %></td>
+        <td><%= user.college_tennis %></td>
+        <td><%= user.role %></td>
+        <td><%= user.photo %></td>
+        <td><%= user.description %></td>
+        <td><%= user.utr %></td>
+        <td><%= user.location %></td>
         <td>
           <a href="/users/<%= user.id %>" class="btn btn-primary">Show</a>
         </td>
