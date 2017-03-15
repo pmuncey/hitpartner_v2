@@ -20,9 +20,8 @@
 
       <!-- Label and input for player_id -->
       <div class="form-group">
-        <label for="player_id" class="control-label" type="hidden">
-          <% current_user.id %>
-        </label>
+
+        <input type="hidden" value="<%= current_user.id %>" name="player_id">
 
       </div>
 

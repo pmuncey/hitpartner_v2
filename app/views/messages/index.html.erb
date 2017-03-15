@@ -73,6 +73,7 @@
     <table class="table table-striped table-hover">
       <tr>
         <th>Body</th>
+        <th>Match</th>
         <th>User</th>
         <th>Actions</th>
       </tr>
@@ -87,7 +88,13 @@
             </a>
           <% end %>
         </td>
-
+        <td>
+          <% if message.user.present? %>
+            <a href="/users/<%= message.user.id %>">
+              <%= message.user.photo %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/messages/<%= message.id %>" class="btn btn-primary">Show</a>
           <a href="/messages/<%= message.id %>/edit" class="btn btn-warning">Edit</a>

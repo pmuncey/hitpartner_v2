@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170314212622) do
+ActiveRecord::Schema.define(version: 20170315190914) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -47,6 +47,8 @@ ActiveRecord::Schema.define(version: 20170314212622) do
     t.string   "location"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "name"
+    t.string   "description"
   end
 
   create_table "matches", force: :cascade do |t|

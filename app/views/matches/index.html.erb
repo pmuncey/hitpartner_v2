@@ -82,7 +82,7 @@
   <div class="col-md-12">
     <table class="table table-striped table-hover">
       <tr>
-
+        <th>Player</th>
         <th>Hitpartner</th>
         <th>Court</th>
         <th>Actions</th>
@@ -90,7 +90,13 @@
 
       <% @matches.each do |match| %>
       <tr>
-
+        <td>
+          <% if match.player.present? %>
+            <a href="/users/<%= match.player.id %>">
+              <%= match.player.email %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <% if match.hitpartner.present? %>
             <a href="/users/<%= match.hitpartner.id %>">
