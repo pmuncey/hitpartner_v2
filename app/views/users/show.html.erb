@@ -1,15 +1,13 @@
 <div class="page-header">
-  <h3>User #<%= @user.id %></h3>
+  <h3><%= @user.name %></h3>
 </div>
 
 <div class="row">
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
-      <dt>name</dt>
-      <dd><%= @user.name %></dd>
 
       <dt>Photo</dt>
-      <dd><%= @user.photo %></dd>
+      <dd><img src="<%= @user.photo %>"</dd>
 
       <dt>Utr</dt>
       <dd><%= @user.utr %></dd>
@@ -18,13 +16,17 @@
       <dd><%= @user.location %></dd>
 
       <dt>Role</dt>
-      <dd><%= @user.role %></dd>
+        <% if @user.role == true %>
+          <dd>Hitpartner</dd>
+        <% else %>
+          <dd>Player</dd>
+        <% end %>
+      </dd>
 
       <dt>Email</dt>
       <dd><%= @user.email %></dd>
 
-      <dt>Password</dt>
-      <dd><%= @user.password %></dd>
+
 
     </dl>
 

@@ -20,11 +20,10 @@
 
       <!-- Label and input for player_id -->
       <div class="form-group">
-        <label for="player_id" class="control-label">
-          Player
+        <label for="player_id" class="control-label" type="hidden">
+          <% current_user.id %>
         </label>
 
-        <%= select_tag(:player_id, options_from_collection_for_select(User.all, :id, :photo, @match.player_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for hitpartner_id -->
@@ -33,7 +32,8 @@
           Hitpartner
         </label>
 
-        <%= select_tag(:hitpartner_id, options_from_collection_for_select(User.all, :id, :photo, @match.hitpartner_id), :class => "form-control") %>
+        <%= select_tag(:hitpartner_id, options_from_collection_for_select(User.all, :id, :email, @match.hitpartner_id), :class => "form-control") %>
+
       </div>
 
       <!-- Label and input for court_id -->

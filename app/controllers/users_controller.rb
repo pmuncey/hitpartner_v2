@@ -5,6 +5,14 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+
+    render("show")
+  end
+
+  def landing
+    @user = User.find(params[:id])
+
+    render('/')
   end
 
   # def edit
