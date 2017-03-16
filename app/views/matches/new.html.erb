@@ -28,7 +28,7 @@
       <!-- Label and input for hitpartner_id -->
       <div class="form-group">
         <label for="hitpartner_id" class="control-label">
-          Hitpartner
+          HitPartners near me
         </label>
 
         <%= select_tag(:hitpartner_id, options_from_collection_for_select(User.where(:college_tennis => true), :id, :name, @match.hitpartner_id), :class => "form-control") %>
@@ -38,7 +38,7 @@
       <!-- Label and input for court_id -->
       <div class="form-group">
         <label for="court_id" class="control-label">
-          Court
+          Courts near me
         </label>
 
         <%= select_tag(:court_id, options_from_collection_for_select(Court.all, :id, :name, @match.court_id), :class => "form-control") %>
