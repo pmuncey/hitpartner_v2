@@ -42,8 +42,10 @@ Rails.application.routes.draw do
   post "/create_match", :controller => "matches", :action => "create"
 
   # READ
+
   get "/matches", :controller => "matches", :action => "index"
   get "/matches/:id", :controller => "matches", :action => "show"
+
 
   # UPDATE
   get "/matches/:id/edit", :controller => "matches", :action => "edit"
@@ -59,6 +61,7 @@ Rails.application.routes.draw do
   get "/", :controller => "users", :action => "landing"
   get "/users", :controller => "users", :action => "index"
   get "/users/:id", :controller => "users", :action => "show"
+
 
   # get "/users/:id/edit", :controller => "users", :action ="edit"
 

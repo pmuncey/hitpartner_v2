@@ -1,8 +1,15 @@
 <div class="page-header">
+  <% if current_user.college_tennis == true %>
   <h1>
-    Matches
-    <a href="/matches/new" class="btn btn-lg btn-success">New Match</a>
+    My Players
+
   </h1>
+    <% else %>
+  <h1>
+    My HitPartners
+    <a href="/matches/new" class="btn btn-lg btn-success">New HitPartner</a>
+  </h1>
+    <% end %>
 </div><div class="row mb-1">
   <div class="col-md-12">
     <%= search_form_for @q, :class => collapse_search_form, :id => "matches_filters" do |f| %>
@@ -82,21 +89,17 @@
   <div class="col-md-12">
     <table class="table table-striped table-hover">
       <tr>
-        <th>Player</th>
+
         <th>Hitpartner</th>
         <th>Court</th>
         <th>Actions</th>
       </tr>
 
+
       <% @matches.each do |match| %>
+      <%# if match.player_id == current_user.id %>
       <tr>
-        <td>
-          <% if match.player.present? %>
-            <a href="/users/<%= match.player.id %>">
-              <%= match.player.email %>
-            </a>
-          <% end %>
-        </td>
+
         <td>
           <% if match.hitpartner.present? %>
             <a href="/users/<%= match.hitpartner.id %>">
@@ -118,6 +121,7 @@
         </td>
       </tr>
       <% end %>
+      <%# end %>
     </table>
     <%= paginate @matches, theme: 'twitter-bootstrap-4' %>
   </div>
