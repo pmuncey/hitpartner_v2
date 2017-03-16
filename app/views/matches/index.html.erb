@@ -1,7 +1,60 @@
+<% if current_user.college_tennis == true %>
+<h1>Hitpartner Dashboard</h1>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-4 text-center">
+          <div>
+            <img src="<%= current_user.photo %>" height="200" width="350">
+          </div>
+          <div>
+
+          <a href="/users/edit" class="btn btn-block btn-warning">
+            Edit Profile
+          </a>
+        </div>
+        </div>
+
+        <div class="col-md-8 text-center">
+          <h3>Stats</h3>
+          <div>
+            <div>Number of hits: <%= @matches.count %></div>
+            <div>Money earned: $<%= @matches.count * 45 %></div>
+
+          </div>
+        </div>
+    </div>
+</div>
+<% else %>
+<h1>Player Dashboard</h1>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-4 text-center">
+          <div>
+            <img src="<%= current_user.photo %>" height="200" width="350">
+          </div>
+          <div>
+
+          <a href="/users/edit" class="btn btn-block btn-warning">
+            Edit Profile
+          </a>
+        </div>
+        </div>
+
+        <div class="col-md-8 text-center">
+          <h3>Stats</h3>
+          <div>
+            <div>Number of hits: <%= @matches.count %></div>
+
+          </div>
+        </div>
+    </div>
+</div>
+<% end %>
+
 <div class="page-header">
   <% if current_user.college_tennis == true %>
   <h1>
-    My Players
+    My Hits
 
   </h1>
     <% else %>
@@ -96,7 +149,7 @@
           <th>HitPartner</th>
         <% end %>
         <th>Photo</th>
-        <th>Description</th>
+        <th>Court</th>
         <th>Actions</th>
       </tr>
 
@@ -122,9 +175,9 @@
           </div>
         <td>
 
-          <% if match.player.present? %>
+          <% if match.court.present? %>
 
-              <%= match.player.description %>
+              <%= match.court.name %>
 
           <% end %>
         </td>
@@ -139,19 +192,20 @@
           <% end %>
         </td>
         <td>
-          <td>
+
             <% if match.hitpartner.present? %>
             <img src="<%= match.hitpartner.photo %>" width="200" height="200">
               <% end %>
-            </div>
-          <td>
+
+          </td>
 
 
-      </td>
+
         <td>
-          <% if match.hitpartner.present? %>
+          <% if match.court.present? %>
 
-              <%= match.hitpartner.description %>
+              <a href="/courts/<%= match.court_id %>">
+                <%= match.court.name %>
             </a>
           <% end %>
         </td>

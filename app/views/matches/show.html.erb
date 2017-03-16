@@ -42,9 +42,11 @@
         </a>
         <% else %>
         <dt>Hitpartner</dt>
+        <dd>
         <a href="/users/<%= @match.hitpartner_id %>">
           <%= @match.hitpartner.name %>
         </a>
+      </dd>
         <% end %>
 
 
