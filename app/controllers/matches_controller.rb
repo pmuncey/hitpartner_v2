@@ -29,6 +29,7 @@ class MatchesController < ApplicationController
     @match = Match.new
 
 
+
     render("matches/new.html.erb")
   end
 
@@ -57,6 +58,8 @@ class MatchesController < ApplicationController
 
   def edit
     @match = Match.find(params[:id])
+
+    
 
     render("matches/edit.html.erb")
   end

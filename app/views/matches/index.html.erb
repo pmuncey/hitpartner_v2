@@ -6,8 +6,8 @@
   </h1>
     <% else %>
   <h1>
-    My HitPartners
-    <a href="/matches/new" class="btn btn-lg btn-success">New HitPartner</a>
+    My Hits
+    <a href="/matches/new" class="btn btn-lg btn-success">New Hit</a>
   </h1>
     <% end %>
 </div><div class="row mb-1">
@@ -102,7 +102,7 @@
 
 
       <% @matches.each do |match| %>
-      <%# if match.player_id == current_user.id %>
+
       <tr>
 
         <%if current_user.college_tennis == true %>
@@ -167,7 +167,7 @@
         </td>
       </tr>
       <% end %>
-      <%# end %>
+
     </table>
     <%= paginate @matches, theme: 'twitter-bootstrap-4' %>
   </div>

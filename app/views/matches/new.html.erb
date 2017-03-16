@@ -31,7 +31,7 @@
           Hitpartner
         </label>
 
-        <%= select_tag(:hitpartner_id, options_from_collection_for_select(User.all, :id, :email, @match.hitpartner_id), :class => "form-control") %>
+        <%= select_tag(:hitpartner_id, options_from_collection_for_select(User.where(:college_tennis => true), :id, :name, @match.hitpartner_id), :class => "form-control") %>
 
       </div>
 

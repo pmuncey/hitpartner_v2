@@ -16,6 +16,11 @@ class CourtsController < ApplicationController
   def new
     @court = Court.new
 
+    @court.name = params[:name]
+    @court.description = params[:description]
+    @court.location = params[:location]
+    @court.photo = params[:photo]
+
     render("courts/new.html.erb")
   end
 
@@ -50,7 +55,7 @@ class CourtsController < ApplicationController
     @court.description = params[:description]
     @court.location = params[:location]
     @court.photo = params[:photo]
-    
+
     render("courts/edit.html.erb")
   end
 
@@ -60,6 +65,7 @@ class CourtsController < ApplicationController
     @court.name = params[:name]
     @court.description = params[:description]
     @court.location = params[:location]
+    @court.photo = params[:photo]
 
     save_status = @court.save
 

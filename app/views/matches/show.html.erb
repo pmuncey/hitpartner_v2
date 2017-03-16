@@ -1,8 +1,8 @@
 <div class="page-header">
   <% if current_user.college_tennis == true %>
-  <h3>Your player, <%= @match.player.name %></h3>
+  <h3>Your hit with, <%= @match.player.name %></h3>
   <% else %>
-  <h3>Your hitpartner, <%= @match.hitpartner.name %></h3>
+  <h3>Your hit with, <%= @match.hitpartner.name %></h3>
   <% end %>
 </div>
 
@@ -66,7 +66,7 @@
       <dd>
         <% if @match.court.present? %>
           <a href="/courts/<%= @match.court_id %>">
-            <%= @match.court.location %>
+            <%= @match.court.name %>
           </a>
         <% end %>
       </dd>
