@@ -141,11 +141,9 @@
         <% end  %>
 
         <td>
-          <!-- <% if current_user.college_tennis == true %> -->
+
           <a href="/matches/<%= match.id %>" class="btn btn-primary">Show</a>
-          <!-- <% else %> -->
-          <!-- <a href="/matches/<%= match.id %>" class="btn btn-primary">Show</a>
-          <% end %> -->
+
           <a href="/matches/<%= match.id %>/edit" class="btn btn-warning">Edit</a>
           <a href="/delete_match/<%= match.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
         </td>

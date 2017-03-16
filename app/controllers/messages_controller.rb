@@ -3,11 +3,19 @@ class MessagesController < ApplicationController
     @q = Message.ransack(params[:q])
     @messages = @q.result(:distinct => true).includes(:user, :match).page(params[:page]).per(10)
 
+    @message.body = params[:body]
+    @message.match_id = params[:match_id]
+    @message.user_id = params[:user_id] #author
+
     render("messages/index.html.erb")
   end
 
   def show
     @message = Message.find(params[:id])
+
+    @message.body = params[:body]
+    @message.match_id = params[:match_id]
+    @message.user_id = params[:user_id] #author
 
     render("messages/show.html.erb")
   end
@@ -24,7 +32,7 @@ class MessagesController < ApplicationController
     @message.body = params[:body]
     @message.match_id = params[:match_id]
     @message.user_id = params[:user_id] #author
-    
+
 
     save_status = @message.save
 

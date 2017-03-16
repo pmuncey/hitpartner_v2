@@ -6,6 +6,8 @@ class MatchesController < ApplicationController
     else
     @q = Match.where(:player_id => current_user.id).ransack(params[:q])
     @matches = @q.result(:distinct => true).includes(:player, :hitpartner, :messages, :court).page(params[:page]).per(10)
+
+
   end
 
     render("matches/index.html.erb")

@@ -102,7 +102,7 @@
             <label>
               Author:
             </label>
-            <p><%= @message.user_id %></p>
+            <%= message.user.name %>
           </div>
 
           <a href="/messages/<%= message.id %>">
