@@ -30,7 +30,7 @@
       <!-- Label and input for description -->
       <div class="form-group">
         <label for="description" class="control-label">
-          Location
+          Description
         </label>
 
         <input type="text" id="description" name="description" placeholder="Description" class="form-control" value="<%= @court.description %>">
@@ -43,6 +43,15 @@
         </label>
 
         <input type="text" id="location" name="location" placeholder="Location" class="form-control" value="<%= @court.location %>">
+      </div>
+
+      <!-- Label and input for photo -->
+      <div class="form-group">
+        <label for="location" class="control-label">
+          Photo
+        </label>
+
+        <input type="text" id="photo" name="photo" placeholder="Photo" class="form-control" value="<%= @court.photo %>">
       </div>
 
       <button class="btn btn-warning">

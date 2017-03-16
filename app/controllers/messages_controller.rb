@@ -3,9 +3,9 @@ class MessagesController < ApplicationController
     @q = Message.ransack(params[:q])
     @messages = @q.result(:distinct => true).includes(:user, :match).page(params[:page]).per(10)
 
-    @message.body = params[:body]
-    @message.match_id = params[:match_id]
-    @message.user_id = params[:user_id] #author
+    # @message.body = params[:body]
+    # @message.match_id = params[:match_id]
+    # @message.user_id = params[:user_id] #author
 
     render("messages/index.html.erb")
   end
