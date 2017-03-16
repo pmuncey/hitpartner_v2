@@ -93,8 +93,9 @@
         <% if current_user.college_tennis == true %>
           <th>Player</th>
         <% else %>
-          <th>HitParter</th>
+          <th>HitPartner</th>
         <% end %>
+        <th>Photo</th>
         <th>Description</th>
         <th>Actions</th>
       </tr>
@@ -113,7 +114,14 @@
             </a>
           <% end %>
         </td>
+
         <td>
+          <% if match.player.present? %>
+            <img src="<%= match.player.photo %>" width="200" height="200">
+            <% end %>
+          </div>
+        <td>
+
           <% if match.player.present? %>
 
               <%= match.player.description %>
@@ -130,6 +138,16 @@
             </a>
           <% end %>
         </td>
+        <td>
+          <td>
+            <% if match.hitpartner.present? %>
+            <img src="<%= match.hitpartner.photo %>" width="200" height="200">
+              <% end %>
+            </div>
+          <td>
+
+
+      </td>
         <td>
           <% if match.hitpartner.present? %>
 
