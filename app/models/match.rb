@@ -16,4 +16,6 @@ class Match < ApplicationRecord
 
   # Validations
 
+  # validates :user_id, uniqueness: true
+
 end

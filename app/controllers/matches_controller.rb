@@ -28,6 +28,7 @@ class MatchesController < ApplicationController
   def new
     @match = Match.new
 
+
     render("matches/new.html.erb")
   end
 
