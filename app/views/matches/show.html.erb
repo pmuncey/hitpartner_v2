@@ -1,18 +1,30 @@
 <div class="page-header">
-  <h3><%= @match.hitpartner.name %></h3>
+  <% if current_user.college_tennis == true %>
+  <h3>Your player, <%= @match.player.name %></h3>
+  <% else %>
+  <h3>Your hitpartner, <%= @match.hitpartner.name %></h3>
+  <% end %>
 </div>
 
 
 <div class="container">
-    <div class="row">
-        <div class="col-sm-4">
-          <img src="<%= @match.hitpartner.photo %>" width="200" height="200">
-        </div>
-        <div class="col-md-8">
-          <h4>Description</h4>
-          <p><%= @match.hitpartner.description %></p>
-        </div>
+  <div class="row">
+    <div class="col-sm-4">
+      <% if current_user.college_tennis == true %>
+      <img src="<%= @match.player.photo %>" width="200" height="200">
+      <% else %>
+      <img src="<%= @match.hitpartner.photo %>" width="200" height="200">
+      <% end %>
     </div>
+    <div class="col-md-8">
+      <h4>Description</h4>
+      <% if current_user.college_tennis == true %>
+      <p><%= @match.player.description %></p>
+      <% else %>
+      <p><%= @match.hitpartner.description %></p>
+      <% end %>
+    </div>
+  </div>
 </div>
 
 
@@ -22,12 +34,25 @@
     <dl class="dl-horizontal">
 
 
-      <dt>Hitpartner</dt>
+      <% if current_user.college_tennis == true %>
+      <dt>Player</dt>
       <dd>
+        <a href="/users/<%= @match.player_id %>">
+          <%= @match.player.name %>
+        </a>
+        <% else %>
+        <dt>Hitpartner</dt>
+        <a href="/users/<%= @match.hitpartner_id %>">
+          <%= @match.hitpartner.name %>
+        </a>
+        <% end %>
+
+
+        <!--
         <% if @match.hitpartner.present? %>
           <a href="/users/<%= @match.hitpartner_id %>">
             <%= @match.hitpartner.name %>
-          </a>
+          </a> -->
         <% end %>
       </dd>
 
@@ -77,7 +102,7 @@
             <label>
               Author:
             </label>
-            <p><%= @match.player.name %></p>
+            <p><%= @message.user_id %></p>
           </div>
 
           <a href="/messages/<%= message.id %>">

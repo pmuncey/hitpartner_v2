@@ -23,7 +23,8 @@ class MessagesController < ApplicationController
 
     @message.body = params[:body]
     @message.match_id = params[:match_id]
-    @message.user_id = params[:user_id]
+    @message.user_id = params[:user_id] #author
+    
 
     save_status = @message.save
 

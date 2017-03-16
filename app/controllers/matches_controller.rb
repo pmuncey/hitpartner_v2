@@ -1,13 +1,23 @@
 class MatchesController < ApplicationController
   def index
+    if current_user.college_tennis == true
+      @q = Match.where(:hitpartner_id => current_user.id).ransack(params[:q])
+      @matches = @q.result(:distinct => true).includes(:player, :hitpartner, :messages, :court).page(params[:page]).per(10)
+    else
     @q = Match.where(:player_id => current_user.id).ransack(params[:q])
     @matches = @q.result(:distinct => true).includes(:player, :hitpartner, :messages, :court).page(params[:page]).per(10)
+  end
 
     render("matches/index.html.erb")
   end
 
   def show
     @message = Message.new
+
+    @message.body = params[:body]
+    @message.match_id = params[:match_id]
+    @message.user_id = params[:user_id]
+
     @match = Match.find(params[:id])
 
     render("matches/show.html.erb")
