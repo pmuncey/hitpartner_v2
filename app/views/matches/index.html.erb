@@ -91,7 +91,7 @@
       <tr>
 
         <th>Hitpartner</th>
-        <th>Court</th>
+        <th>Description</th>
         <th>Actions</th>
       </tr>
 
@@ -103,14 +103,14 @@
         <td>
           <% if match.hitpartner.present? %>
             <a href="/users/<%= match.hitpartner.id %>">
-              <%= match.hitpartner.email %>
+              <%= match.hitpartner.name %>
             </a>
           <% end %>
         </td>
         <td>
-          <% if match.court.present? %>
-            <a href="/courts/<%= match.court.id %>">
-              <%= match.court.location %>
+          <% if match.hitpartner.present? %>
+
+              <%= match.hitpartner.description %>
             </a>
           <% end %>
         </td>

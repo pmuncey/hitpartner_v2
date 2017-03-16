@@ -1,27 +1,41 @@
 <div class="page-header">
-  <h3>Match #<%= @match.id %></h3>
+  <h3><%= @match.hitpartner.name %></h3>
 </div>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4">
+          <img src="<%= @match.hitpartner.photo %>" width="200" height="200">
+        </div>
+        <div class="col-md-8">
+          <h4>Description</h4>
+          <p><%= @match.hitpartner.description %></p>
+        </div>
+    </div>
+</div>
+
+
 
 <div class="row">
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
-      <dt>Player</dt>
-      <dd>
-        <% if @match.player.present? %>
-          <a href="/users/<%= @match.player_id %>">
-            <%= @match.player.photo %>
-          </a>
-        <% end %>
-      </dd>
+
 
       <dt>Hitpartner</dt>
       <dd>
         <% if @match.hitpartner.present? %>
           <a href="/users/<%= @match.hitpartner_id %>">
-            <%= @match.hitpartner.photo %>
+            <%= @match.hitpartner.name %>
           </a>
         <% end %>
       </dd>
+
+
+
+          <!-- <a href="/courts/<%= @match.court_id %>"> -->
+
+
 
       <dt>Court</dt>
       <dd>
@@ -59,6 +73,13 @@
 
       <% @match.messages.each do |message| %>
         <li class="list-group-item">
+          <div>
+            <label>
+              Author:
+            </label>
+            <p><%= @match.player.name %></p>
+          </div>
+
           <a href="/messages/<%= message.id %>">
             <%= message.body %>
           </a>
@@ -94,13 +115,7 @@
       <input type="hidden" name="match_id" value="<%= @match.id %>">
 
       <!-- Label and input for user_id -->
-      <div class="form-group">
-        <label for="user_id" class="control-label">
-          User
-        </label>
-
-        <%= select_tag(:user_id, options_from_collection_for_select(User.all, :id, :photo), :class => "form-control") %>
-      </div>
+      <input type="hidden" name="user_id" value="<%= current_user.id %>">
 
       <button class="btn btn-block btn-success">
         Create Message
