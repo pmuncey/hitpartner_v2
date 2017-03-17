@@ -8,5 +8,5 @@ class Message < ApplicationRecord
   # Indirect associations
 
   # Validations
-
+  validates :body, presence: true
 end
