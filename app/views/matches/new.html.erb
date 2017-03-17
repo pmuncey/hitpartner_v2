@@ -9,11 +9,16 @@
 <% end %>
 
 <div class="page-header">
-  <h3>Request a hit</h3>
+  <h3>Potential HitPartners near me</h3>
 </div>
 
-<div class="row">
-  <div class="col-md-12">
+<table>
+<% User.where(:college_tennis => true, :location => current_user.location).each do |user| %>
+<tr>
+  <td><%= user.name %></td>
+  <td><img src="<%= user.photo %>"width="200" height="200"></td>
+  <td><%= user.description %></td>
+  <td>
     <form action="/create_match" method="post">
       <!-- Hidden input for authenticity token to protect from forgery -->
       <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
@@ -26,14 +31,9 @@
       </div>
 
       <!-- Label and input for hitpartner_id -->
-      <div class="form-group">
-        <label for="hitpartner_id" class="control-label">
-          HitPartners near me
-        </label>
+      <input type="hidden" name="hitpartner_id" value="<%= user.id %>">
 
-        <%= select_tag(:hitpartner_id, options_from_collection_for_select(User.where(:college_tennis => true), :id, :name, @match.hitpartner_id), :class => "form-control") %>
 
-      </div>
 
       <!-- Label and input for court_id -->
       <div class="form-group">
@@ -41,14 +41,16 @@
           Courts near me
         </label>
 
-        <%= select_tag(:court_id, options_from_collection_for_select(Court.all, :id, :name, @match.court_id), :class => "form-control") %>
+        <%= select_tag(:court_id, options_from_collection_for_select(Court.where(:location => current_user.location), :id, :name, @match.court_id), :class => "form-control") %>
       </div>
 
       <button class="btn btn-success">
         Create Match
       </button>
-      or
-      <a href="/matches">Cancel</a>
+
     </form>
-  </div>
-</div>
+  </td>
+</tr>
+<% end %>
+</table>
+<a href="/matches">Cancel</a>

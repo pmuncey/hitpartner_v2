@@ -16,6 +16,8 @@ class Match < ApplicationRecord
 
   # Validations
 
-  # validates :user_id, uniqueness: true
+  validates :player_id, :hitpartner_id, :court_id, presence: true
+
+  # validates :player_id, uniqueness: {scope: [:hitpartner_id, :court_id] }
 
 end

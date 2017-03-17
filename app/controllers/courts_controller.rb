@@ -16,10 +16,7 @@ class CourtsController < ApplicationController
   def new
     @court = Court.new
 
-    @court.name = params[:name]
-    @court.description = params[:description]
-    @court.location = params[:location]
-    @court.photo = params[:photo]
+
 
     render("courts/new.html.erb")
   end
@@ -51,10 +48,7 @@ class CourtsController < ApplicationController
   def edit
     @court = Court.find(params[:id])
 
-    @court.name = params[:name]
-    @court.description = params[:description]
-    @court.location = params[:location]
-    @court.photo = params[:photo]
+
 
     render("courts/edit.html.erb")
   end
