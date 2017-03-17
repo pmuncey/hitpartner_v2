@@ -39,6 +39,7 @@ class MatchesController < ApplicationController
     @match.player_id = params[:player_id]
     @match.hitpartner_id = params[:hitpartner_id]
     @match.court_id = params[:court_id]
+    @match.confirmation = params[:confirmation_id]
 
     save_status = @match.save
 
@@ -59,7 +60,7 @@ class MatchesController < ApplicationController
   def edit
     @match = Match.find(params[:id])
 
-    
+
 
     render("matches/edit.html.erb")
   end
