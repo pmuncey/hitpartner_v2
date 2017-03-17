@@ -16,17 +16,29 @@
   <div class="col-md-12">
     <table class="table table-striped table-hover">
       <tr>
+<<<<<<< HEAD
         <th>Name</th>
+=======
+        <th>Email</th>
+        <th>Password</th>
+        <th>College tennis</th>
+        <th>Role</th>
+>>>>>>> origin/master
         <th>Photo</th>
+        <th>Description</th>
         <th>Utr</th>
         <th>Location</th>
+<<<<<<< HEAD
         <th>Role</th>
         <th>Email</th>
+=======
+>>>>>>> origin/master
         <th>Actions</th>
       </tr>
 
       <% @users.each do |user| %>
       <tr>
+<<<<<<< HEAD
         <td><%= user.name %></td>
         <td>
           <img src="<%= user.photo %>" width="200" height="200">
@@ -39,6 +51,16 @@
           <td>Player</td>
         <% end %>
         <td><%= user.email %></td>
+=======
+        <td><%= user.email %></td>
+        <td><%= user.password %></td>
+        <td><%= user.college_tennis %></td>
+        <td><%= user.role %></td>
+        <td><%= user.photo %></td>
+        <td><%= user.description %></td>
+        <td><%= user.utr %></td>
+        <td><%= user.location %></td>
+>>>>>>> origin/master
         <td>
           <a href="/users/<%= user.id %>" class="btn btn-primary">Show</a>
         </td>

@@ -55,9 +55,22 @@
           </div>
 
           <div class="form-group">
+<<<<<<< HEAD
             <%= f.label :name, class: "col-sm-2 control-label" %>
             <div class="col-sm-10">
               <%= f.text_field :name, :class => "form-control", :placeholder => "Enter name" %>
+=======
+            <%= f.label :college_tennis, class: "col-sm-2 control-label" %>
+            <div class="col-sm-10">
+              <%= f.check_box :college_tennis, class: "col-sm-2 control-label" %>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :role, class: "col-sm-2 control-label" %>
+            <div class="col-sm-10">
+              <%= f.check_box :role, class: "col-sm-2 control-label" %>
+>>>>>>> origin/master
             </div>
           </div>
 
@@ -70,6 +83,16 @@
 
           <div class="form-group">
             <%= f.label :description, class: "col-sm-2 control-label" %>
+<<<<<<< HEAD
+            <div class="col-sm-10">
+              <%= f.text_field :description, :class => "form-control", :placeholder => "Enter description" %>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :utr, class: "col-sm-2 control-label" %>
+=======
+>>>>>>> origin/master
             <div class="col-sm-10">
               <%= f.text_field :description, :class => "form-control", :placeholder => "Enter description" %>
             </div>
@@ -78,13 +101,7 @@
           <div class="form-group">
             <%= f.label :utr, class: "col-sm-2 control-label" %>
             <div class="col-sm-10">
-              <%= f.text_field :utr, :class => "form-control", :placeholder => "Enter utr" %>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <%= f.label :location, class: "col-sm-2 control-label" %>
-            <div class="col-sm-10">
+<<<<<<< HEAD
               <!-- <%#= f.text_field :location, :class => "form-control", :placeholder => "Enter state" %> -->
               <select class="form-control" id="state" name="user[location]" value="<%= current_user.location %>">
                 <option value="">N/A</option>
@@ -150,6 +167,16 @@
             <div class="col-sm-10">
               <%= f.check_box :college_tennis, autocomplete: "off", class: "check_box" %>
               Use app as hitpartner?
+=======
+              <%= f.text_field :utr, :class => "form-control", :placeholder => "Enter utr" %>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :location, class: "col-sm-2 control-label" %>
+            <div class="col-sm-10">
+              <%= f.text_field :location, :class => "form-control", :placeholder => "Enter location" %>
+>>>>>>> origin/master
             </div>
           </div>
 
